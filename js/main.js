@@ -17,9 +17,9 @@
     });
   });
 
-  // Clic en "Quiero más información" / llamadas telefónicas
-  document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
-    a.addEventListener('click', function () { track('clic_telefono'); });
+  // Clic en los links de WhatsApp
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+    a.addEventListener('click', function () { track('clic_whatsapp'); });
   });
   document.querySelectorAll('a[href="#inscripcion"]').forEach(function (a) {
     a.addEventListener('click', function () { track('clic_cta_formulario'); });
