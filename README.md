@@ -16,9 +16,11 @@ para GitHub Pages.
 
 ## Decisiones de difusión (revisar si cambian)
 
-- **`<meta name="robots" content="noindex, nofollow">`** en el `<head>`: el sitio NO debe aparecer
-  en buscadores por ahora. Si en algún momento se quiere indexar en Google, hay que borrar esa
-  línea y dar de alta el sitio en Search Console.
+- **`<meta name="robots" content="noindex, nofollow">`** en el `<head>`, más el archivo `_headers`
+  (que Cloudflare Pages convierte en la cabecera `X-Robots-Tag: noindex, nofollow` para TODOS los
+  archivos, incluidos los PDF de los trípticos — la meta etiqueta solo cubre el HTML): el sitio NO
+  debe aparecer en buscadores por ahora. Si en algún momento se quiere indexar en Google, hay que
+  borrar la meta etiqueta Y el `_headers`, y dar de alta el sitio en Search Console.
 - **Sin botones de "compartir"** (WhatsApp/Facebook) todavía — se evaluó y se dejó pendiente a
   propósito.
 - El contacto es por **WhatsApp** (`wa.me/56947490313`), no por llamada — se prefiere que la gente
@@ -75,7 +77,15 @@ npx http-server -p 8080 -c-1 .
 
 Y abre `http://localhost:8080`.
 
-## Publicar en GitHub Pages
+## Hosting actual: Cloudflare Pages
+
+El sitio se publica en **https://plan-gastrico-landing.pages.dev** desde la rama `master` de este
+repo, conectado a Cloudflare Pages (proyecto `plan-gastrico-landing`, sin framework, sin comando de
+build, directorio de salida vacío). Cada `git push` a `master` se despliega solo. Las URLs de
+`og:url`, `og:image` y `twitter:image` en `index.html` apuntan a esa dirección: si se cambia de
+dominio, hay que actualizar esas 3 líneas.
+
+## Publicar en GitHub Pages (alternativa)
 
 Si el repo se creó con este mismo Claude Code (ver historial), ya debería estar publicado. Si no:
 
