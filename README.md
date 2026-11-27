@@ -85,6 +85,15 @@ build, directorio de salida vacío). Cada `git push` a `master` se despliega sol
 `og:url`, `og:image` y `twitter:image` en `index.html` apuntan a esa dirección: si se cambia de
 dominio, hay que actualizar esas 3 líneas.
 
+### Redirección desde GitHub Pages
+
+El link antiguo (`xergio1625.github.io/plan-gastrico-landing/`) ya fue difundido, así que GitHub
+Pages sigue encendido, pero `index.html` trae al inicio un script que redirige cualquier visita en
+`*.github.io` a la dirección de Cloudflare (agregando `?utm_campaign=enlace_github`). Así todas las
+visitas se miden en Cloudflare Web Analytics y no hay que reenviar el link. El script no hace nada
+en `pages.dev` (no hay bucle). Los links directos a PDF en `github.io` no redirigen (se siguen
+descargando). Si se cambia de dominio, actualizar la URL de destino en ese script.
+
 ## Publicar en GitHub Pages (alternativa)
 
 Si el repo se creó con este mismo Claude Code (ver historial), ya debería estar publicado. Si no:

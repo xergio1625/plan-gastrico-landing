@@ -3,6 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Redirección: el link antiguo (GitHub Pages) lleva a la dirección de Cloudflare,
+     que es donde se miden las visitas (Cloudflare Web Analytics). Solo actúa en
+     *.github.io; en pages.dev no hace nada (así no hay bucle). Conserva la ruta
+     (quitando el nombre del repo), el hash y los parámetros, y marca el origen con
+     utm_campaign por si luego se usa GA4. Sin JavaScript, la página se ve igual. -->
+<script>
+  (function () {
+    if (!/\.github\.io$/.test(location.hostname)) return;
+    var ruta = location.pathname.replace(/^\/plan-gastrico-landing/, '') || '/';
+    var q = location.search || '';
+    if (q.indexOf('utm_campaign=') === -1) {
+      q += (q ? '&' : '?') + 'utm_campaign=enlace_github';
+    }
+    location.replace('https://plan-gastrico-landing.pages.dev' + ruta + q + location.hash);
+  })();
+</script>
 <title>Plan Piloto Cáncer Gástrico y Colorrectal</title>
 <meta name="description" content="Plan Piloto de Prevención de Cáncer Gástrico y Colorrectal — Servicio de Salud Coquimbo. Infórmate sobre los exámenes, cómo prepararte y resuelve tus dudas.">
 
