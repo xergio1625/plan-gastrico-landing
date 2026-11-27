@@ -87,14 +87,19 @@ dominio, hay que actualizar esas 3 líneas.
 
 ### Redirección desde GitHub Pages
 
-El link antiguo ya fue difundido, así que GitHub Pages sigue encendido. Ojo: GitHub lo sirve desde
-`https://cotizaexamen.cl/plan-gastrico-landing/` (dominio propio configurado en la cuenta de
-GitHub; `xergio1625.github.io/plan-gastrico-landing/` redirige ahí con un 301). `index.html` trae al
-inicio un script que redirige las visitas en `*.github.io` y `cotizaexamen.cl` a la dirección de
-Cloudflare (agregando `?utm_campaign=enlace_github`). Así todas las
-visitas se miden en Cloudflare Web Analytics y no hay que reenviar el link. El script no hace nada
-en `pages.dev` (no hay bucle). Los links directos a PDF en `github.io` no redirigen (se siguen
-descargando). Si se cambia de dominio, actualizar la URL de destino en ese script.
+El link antiguo ya fue difundido, así que GitHub Pages sigue encendido, pero **solo como
+redirección**. GitHub sirve los repos de proyecto de la cuenta bajo `cotizaexamen.cl` (dominio propio
+del repo de usuario `xergio1625.github.io`, que es otro sitio: CotizaExamen), así que la landing
+quedaba en `https://cotizaexamen.cl/plan-gastrico-landing/`, y `xergio1625.github.io/plan-gastrico-landing/`
+redirige ahí con un 301. Para que el contenido de la landing no viva bajo el dominio de otro
+proyecto, GitHub Pages se sirve desde la rama **`gh-pages-redirect`**, que contiene solo un
+`index.html` y un `404.html` que redirigen a `https://plan-gastrico-landing.pages.dev`
+(agregando `?utm_campaign=enlace_github` y conservando ruta, parámetros y hash; el `404.html`
+cubre los links directos a PDF/imágenes). El contenido real de la landing vive en `master` y se
+publica solo en Cloudflare Pages, donde se miden las visitas (Web Analytics).
+
+Si se cambia de dominio, actualizar la URL de destino en esos dos archivos de la rama
+`gh-pages-redirect` (no en `master`).
 
 ## Publicar en GitHub Pages (alternativa)
 
