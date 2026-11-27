@@ -85,6 +85,15 @@ build, directorio de salida vacío). Cada `git push` a `master` se despliega sol
 `og:url`, `og:image` y `twitter:image` en `index.html` apuntan a esa dirección: si se cambia de
 dominio, hay que actualizar esas 3 líneas.
 
+### Medición de visitas: Cloudflare Web Analytics
+
+`index.html` incluye el snippet de Cloudflare Web Analytics (sin cookies, no requiere aviso de
+consentimiento) para el host `plan-gastrico-landing.pages.dev`. Las estadísticas están en
+dash.cloudflare.com > Observabilidad > Analytics > Análisis web. Como `pages.dev` no es una zona de la
+cuenta, el snippet va pegado en el HTML (si se cambia de dominio, hay que dar de alta el nuevo
+host y actualizar el token). Quienes llegan por el link antiguo se pueden distinguir por el
+parámetro `utm_campaign=enlace_github` de la URL.
+
 ### Redirección desde GitHub Pages
 
 El link antiguo ya fue difundido, así que GitHub Pages sigue encendido, pero **solo como
