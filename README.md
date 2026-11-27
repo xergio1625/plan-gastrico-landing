@@ -87,9 +87,11 @@ dominio, hay que actualizar esas 3 líneas.
 
 ### Redirección desde GitHub Pages
 
-El link antiguo (`xergio1625.github.io/plan-gastrico-landing/`) ya fue difundido, así que GitHub
-Pages sigue encendido, pero `index.html` trae al inicio un script que redirige cualquier visita en
-`*.github.io` a la dirección de Cloudflare (agregando `?utm_campaign=enlace_github`). Así todas las
+El link antiguo ya fue difundido, así que GitHub Pages sigue encendido. Ojo: GitHub lo sirve desde
+`https://cotizaexamen.cl/plan-gastrico-landing/` (dominio propio configurado en la cuenta de
+GitHub; `xergio1625.github.io/plan-gastrico-landing/` redirige ahí con un 301). `index.html` trae al
+inicio un script que redirige las visitas en `*.github.io` y `cotizaexamen.cl` a la dirección de
+Cloudflare (agregando `?utm_campaign=enlace_github`). Así todas las
 visitas se miden en Cloudflare Web Analytics y no hay que reenviar el link. El script no hace nada
 en `pages.dev` (no hay bucle). Los links directos a PDF en `github.io` no redirigen (se siguen
 descargando). Si se cambia de dominio, actualizar la URL de destino en ese script.

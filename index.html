@@ -6,12 +6,13 @@
 
 <!-- Redirección: el link antiguo (GitHub Pages) lleva a la dirección de Cloudflare,
      que es donde se miden las visitas (Cloudflare Web Analytics). Solo actúa en
-     *.github.io; en pages.dev no hace nada (así no hay bucle). Conserva la ruta
+     *.github.io y cotizaexamen.cl (el dominio propio con que GitHub Pages sirve el
+     sitio: https://cotizaexamen.cl/plan-gastrico-landing/); en pages.dev no hace nada (así no hay bucle). Conserva la ruta
      (quitando el nombre del repo), el hash y los parámetros, y marca el origen con
      utm_campaign por si luego se usa GA4. Sin JavaScript, la página se ve igual. -->
 <script>
   (function () {
-    if (!/\.github\.io$/.test(location.hostname)) return;
+    if (!/(\.github\.io|^(www\.)?cotizaexamen\.cl)$/.test(location.hostname)) return;
     var ruta = location.pathname.replace(/^\/plan-gastrico-landing/, '') || '/';
     var q = location.search || '';
     if (q.indexOf('utm_campaign=') === -1) {
